@@ -1,0 +1,25 @@
+.product-list {
+    padding: 20px;
+    background-color: #DFECDF; /* Verde Claro */
+  }
+  
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #E3EBDA; /* Verde Pastel */
+  }
+  
+  mat-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding: 10px;
+  }
+  
+  img {
+    object-fit: cover;
+    height: 200px;
+  }
+  
