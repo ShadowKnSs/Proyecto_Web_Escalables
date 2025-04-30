@@ -1,15 +1,19 @@
 <div class="product-list">
-    <mat-grid-list [cols]="cols" gutterSize="16px" rowHeight="1:1">
-      <mat-grid-tile *ngFor="let producto of productos">
-        <mat-card class="product-card">
+  <mat-grid-list [cols]="cols" gutterSize="16px" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let producto of productos">
+      <mat-card class="product-card">
+        <div class="img-wrapper">
           <img mat-card-image [src]="producto.imagen" alt="{{producto.nombre}}">
-          <mat-card-content>
-            <h3>{{ producto.nombre }}</h3>
-            <p>{{ producto.descripcion }}</p>
-            <h4>${{ producto.precio }}</h4>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </div>
-  
+        </div>
+        <mat-card-content>
+          <h3>{{ producto.nombre }}</h3>
+          <p>{{ producto.descripcion }}</p>
+          <h4>${{ producto.precio }}</h4>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">Detalles</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

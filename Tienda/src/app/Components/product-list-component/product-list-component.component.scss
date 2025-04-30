@@ -1,25 +1,34 @@
 .product-list {
-    padding: 20px;
-    background-color: #DFECDF; /* Verde Claro */
-  }
-  
-  .product-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    background-color: #E3EBDA; /* Verde Pastel */
-  }
-  
-  mat-card-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
-    padding: 10px;
-  }
-  
-  img {
-    object-fit: cover;
-    height: 200px;
-  }
-  
+  padding: 20px;
+  background-color: #DFECDF; /* Verde Claro fondo */
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #E3EBDA; /* Verde Pastel */
+}
+
+.img-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen al tamaño del contenedor */
+}
+
+mat-card-content {
+  flex-grow: 1;
+  padding: 10px;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10px 10px;
+}

@@ -1,18 +1,16 @@
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-header',
-  standalone: true,   // <- Muy importante para Standalone Components
+  standalone: true,
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -20,9 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    
+    MatInputModule
   ],
   templateUrl: './header-component.component.html',
   styleUrls: ['./header-component.component.scss']
@@ -37,7 +33,6 @@ export class HeaderComponent {
   }
 
   onLogin() {
-    // Aquí podrías abrir un modal de login o redirigir a página login
     this.authService.login('UsuarioDemo');
   }
 
