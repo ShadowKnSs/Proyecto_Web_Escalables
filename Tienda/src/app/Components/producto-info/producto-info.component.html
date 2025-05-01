@@ -1,0 +1,14 @@
+<div class="info-contenedor">
+    <h1 class="titulo">{{ nombre }}</h1>
+    <p class="descripcion">{{ descripcion }}</p>
+  
+    <div class="detalles" *ngIf="detalles">
+      <h3>Detalles:</h3>
+      <p>{{ detalles }}</p>
+    </div>
+  
+    <p class="stock" [ngClass]="{ 'disponible': stock > 0, 'agotado': stock === 0 }">
+      Stock: {{ stock > 0 ? stock + ' disponibles' : 'Agotado' }}
+    </p>
+  </div>
+  

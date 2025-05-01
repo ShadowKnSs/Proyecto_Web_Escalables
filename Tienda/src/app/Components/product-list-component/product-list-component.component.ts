@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { BreakpointObserver, Breakpoints, LayoutModule } from '@angular/cdk/layout';
+import { LayoutModule } from '@angular/cdk/layout';
 
 
 interface Producto {
@@ -75,20 +76,10 @@ export class ProductListComponent {
 
   cols: number = 4; // columnas iniciales (escritorio)
 
-  constructor(private breakpointObserver: BreakpointObserver) {
-    this.breakpointObserver.observe([
-      Breakpoints.Handset,  
-      Breakpoints.Tablet,   
-      Breakpoints.Web
-    ]).subscribe(result => {
-      if (result.breakpoints[Breakpoints.Handset]) {
-        this.cols = 1;
-      } else if (result.breakpoints[Breakpoints.Tablet]) {
-        this.cols = 2;
-      } else if (result.breakpoints[Breakpoints.Web]) {
-        this.cols = 4;
-      }
-    });
-  }
+  constructor(private router: Router) {}
+
+verDetalle(producto: any) {
+  this.router.navigate(['/detalle', producto.id]);
+}  
 
 }

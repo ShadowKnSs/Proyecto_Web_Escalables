@@ -1,0 +1,31 @@
+.valoracion-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    margin-top: 4px;
+    justify-content: center;
+  
+    .estrella-activa {
+      color: #FFD700; // amarillo estrella
+    }
+  
+    .estrella-media {
+      color: #FFC107;
+    }
+  
+    .estrella-inactiva {
+      color: #ccc;
+    }
+  
+    mat-icon {
+      font-size: 20px;
+    }
+  
+    .valor-numerico {
+      color: #555;
+      font-size: 14px;
+      margin-left: 4px;
+    }
+  }
+  

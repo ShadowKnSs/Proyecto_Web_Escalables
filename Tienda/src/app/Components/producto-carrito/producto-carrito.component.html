@@ -1,0 +1,16 @@
+<div class="carrito-contenedor">
+    <div class="cantidad-control">
+      <button mat-icon-button (click)="disminuir()" [disabled]="cantidad === 1">
+        <mat-icon>remove</mat-icon>
+      </button>
+      <span>{{ cantidad }}</span>
+      <button mat-icon-button (click)="aumentar()" [disabled]="cantidad === stock">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  
+    <button mat-raised-button class="btn-agregar" (click)="anadir()" [disabled]="stock === 0">
+      Añadir al carrito
+    </button>
+  </div>
+  

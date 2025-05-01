@@ -1,0 +1,35 @@
+.carrito-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .cantidad-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .btn-agregar {
+    background-color: #FF7F50;
+    color: white;
+    border-radius: 24px;
+    padding: 6px 24px;
+    font-weight: 500;
+    text-transform: none;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #FF6347;
+    }
+  
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+  

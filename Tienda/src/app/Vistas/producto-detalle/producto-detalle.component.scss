@@ -1,0 +1,22 @@
+.detalle-contenedor {
+    padding: 20px;
+  }
+  
+  .detalle-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+  
+  .detalle-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  

@@ -1,0 +1,18 @@
+.imagen-contenedor {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 95, 171, 0.2);
+    }
+  }
+  

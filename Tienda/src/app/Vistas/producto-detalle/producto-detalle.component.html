@@ -1,0 +1,24 @@
+<div class="detalle-contenedor">
+    <div class="detalle-grid">
+      <app-producto-imagen [imagenUrl]="producto.imagen" [alt]="producto.nombre" />
+  
+      <div class="detalle-info">
+        <app-producto-info
+          [nombre]="producto.nombre"
+          [descripcion]="producto.descripcion"
+          [detalles]="producto.detalles"
+          [stock]="producto.stock"
+        ></app-producto-info>
+  
+        <app-producto-valoracion [valoracion]="producto.valoracion" />
+  
+        <app-producto-carrito
+          [stock]="producto.stock"
+          (addToCart)="onAgregarAlCarrito($event)"
+        ></app-producto-carrito>
+  
+        <app-producto-pago [metodos]="producto.metodosPago" />
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,12 @@
+<div class="pago-contenedor">
+    <h4>Métodos de pago aceptados</h4>
+    <div class="iconos-pago">
+      <ng-container *ngFor="let metodo of metodos">
+        <div class="pago-icono">
+          <mat-icon class="icono">{{ obtenerIcono(metodo) }}</mat-icon>
+          <span>{{ metodo }}</span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  

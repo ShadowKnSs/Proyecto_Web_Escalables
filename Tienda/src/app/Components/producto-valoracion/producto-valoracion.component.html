@@ -1,0 +1,13 @@
+<div class="valoracion-contenedor">
+    <ng-container *ngFor="let estrella of [1,2,3,4,5]">
+      <mat-icon [ngClass]="{
+          'estrella-activa': estrella <= Math.floor(valoracion),
+          'estrella-media': estrella - valoracion > 0 && estrella - valoracion < 1,
+          'estrella-inactiva': estrella > valoracion
+        }">
+        {{ estrella <= valoracion ? 'star' : estrella - valoracion < 1 && estrella - valoracion > 0 ? 'star_half' : 'star_border' }}
+      </mat-icon>
+    </ng-container>
+    <span class="valor-numerico">({{ valoracion.toFixed(1) }})</span>
+  </div>
+  

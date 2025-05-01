@@ -1,0 +1,42 @@
+.pago-contenedor {
+    padding: 10px 0;
+    text-align: center;
+  
+    h4 {
+      margin-bottom: 12px;
+      color: #333;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+  
+  .iconos-pago {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .pago-icono {
+    background: #F5F5F5;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #005FAB;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease;
+  
+    .icono {
+      font-size: 20px;
+    }
+  
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,95,171,0.3);
+    }
+  }
+  
