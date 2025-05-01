@@ -1,18 +1,14 @@
 import { Routes } from '@angular/router';
-import { ProductoDetalleComponent } from './Vistas/producto-detalle/producto-detalle.component';
-import { ProductListComponent } from './Components/product-list-component/product-list-component.component';
 
 export const routes: Routes = [
-    {
-      path: '',
-      component: ProductListComponent
-    },
-    {
-      path: 'detalle/:id',
-      component: ProductoDetalleComponent
-    },
-    {
-      path: '**',
-      redirectTo: ''
-    }
-  ];
+  {
+    path: '',
+    loadComponent: () =>
+      import('./Components/product-list-component/product-list-component.component').then(m => m.ProductListComponent)
+  },
+  {
+    path: 'detalle/:id',
+    loadComponent: () =>
+      import('./Vistas/producto-detalle/producto-detalle.component').then(m => m.ProductoDetalleComponent)
+  }
+];

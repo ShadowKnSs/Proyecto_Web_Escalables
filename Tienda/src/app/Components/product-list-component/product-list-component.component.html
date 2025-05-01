@@ -14,7 +14,7 @@
           <p class="precio">$ {{ producto.precio }}</p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button class="btn-detalles">Ver detalles</button>
+          <button mat-button class="btn-detalles" (click)="verDetalle(producto); $event.stopPropagation()">Ver detalles</button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-
+import { ProductService } from '../../services/product.service';
 import { ProductoImagenComponent} from '../../Components/producto-imagen/producto-imagen.component';
 import { ProductoInfoComponent } from '../../Components/producto-info/producto-info.component';
 import { ProductoCarritoComponent } from '../../Components/producto-carrito/producto-carrito.component';
@@ -17,27 +17,25 @@ import { ProductoValoracionComponent } from '../../Components/producto-valoracio
     ProductoInfoComponent,
     ProductoCarritoComponent,
     ProductoPagoComponent,
-    ProductoValoracionComponent
+    ProductoValoracionComponent,
   ],
   templateUrl: './producto-detalle.component.html',
   styleUrls: ['./producto-detalle.component.scss']
 })
 export class ProductoDetalleComponent {
-  producto = {
-    id: 1,
-    nombre: 'Laptop HP 14"',
-    descripcion: 'Una laptop diseñada para estudiantes y profesionales.',
-    detalles: 'Procesador Ryzen 5, 8GB RAM, 256GB SSD, Pantalla FHD',
-    imagen: 'https://via.placeholder.com/600x400.png?text=Producto',
-    stock: 12,
-    valoracion: 4.3,
-    metodosPago: ['Visa', 'MasterCard', 'PayPal', 'Oxxo'],
-  };
+  producto: any;
 
-  constructor(private route: ActivatedRoute) {
-    const id = this.route.snapshot.paramMap.get('id');
-    console.log('ID recibido:', id);
-
+  constructor(
+    private route: ActivatedRoute,
+    private productoService: ProductService
+  ) {
+    const id = +this.route.snapshot.paramMap.get('id')!;
+    const encontrado = this.productoService.getProductoPorId(id);
+    if (encontrado) {
+      this.producto = encontrado;
+    } else {
+      console.error(`Producto con ID ${id} no encontrado`);
+    }
   }
 
   onAgregarAlCarrito(cantidad: number) {
