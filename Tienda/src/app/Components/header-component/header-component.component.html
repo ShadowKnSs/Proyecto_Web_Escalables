@@ -3,32 +3,44 @@
 
   <span class="spacer"></span>
 
-  <div class="search-box">
-    <input type="text" placeholder="Buscar productos...">
-    <button aria-label="Buscar">
-      <mat-icon>search</mat-icon>
-    </button>
-  </div>
+  <ng-container *ngIf="!enLogin">
+    <div class="search-box">
+      <input type="text" placeholder="Buscar productos..." />
+      <button aria-label="Buscar">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
 
-  <span class="spacer"></span>
+    <span class="spacer"></span>
 
-  <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
-    <button mat-raised-button color="accent" (click)="onLogin()">Iniciar Sesión</button>
+    <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
+      <button mat-raised-button color="accent" (click)="onLogin()">
+        Iniciar Sesión
+      </button>
+    </ng-container>
+
+    <ng-template #loggedInTemplate>
+      <button mat-icon-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item *ngIf="rolUsuario === 'admin'">
+          <mat-icon>upload</mat-icon><span>Subir Producto</span>
+        </button>
+        <button mat-menu-item *ngIf="rolUsuario === 'admin'">
+          <mat-icon>inventory</mat-icon><span>Mis Productos</span>
+        </button>
+        <button mat-menu-item *ngIf="rolUsuario === 'admin'">
+          <mat-icon>dashboard</mat-icon><span>Dashboard</span>
+        </button>
+        <button mat-menu-item *ngIf="rolUsuario === 'cliente'">
+          <mat-icon>shopping_bag</mat-icon><span>Mis Compras</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>logout</mat-icon><span>Cerrar Sesión</span>
+        </button>
+      </mat-menu>
+      
+    </ng-template>
   </ng-container>
-  
-  <ng-template #loggedInTemplate>
-    <button mat-icon-button [matMenuTriggerFor]="userMenu">
-      <mat-icon>account_circle</mat-icon>
-    </button>
-    <mat-menu #userMenu="matMenu">
-      <button mat-menu-item>
-        <mat-icon>person</mat-icon><span>Mi Perfil</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>shopping_bag</mat-icon><span>Mis Compras</span>
-      </button>
-      <button mat-menu-item (click)="onLogout()">
-        <mat-icon>logout</mat-icon><span>Cerrar Sesión</span>
-      </button>
-    </mat-menu>
-  </ng-template>
+</mat-toolbar>

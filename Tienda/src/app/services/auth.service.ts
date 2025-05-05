@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false);
   private username = new BehaviorSubject<string>('');
+  private role = new BehaviorSubject<string>('');
 
   get isLoggedIn() {
     return this.loggedIn.asObservable();
@@ -14,14 +15,20 @@ export class AuthService {
     return this.username.asObservable();
   }
 
-  login(nombre: string) {
+  get currentRole() {
+    return this.role.asObservable();
+  }
+
+  login(nombre: string, rol: 'admin' | 'cliente') {
     this.loggedIn.next(true);
     this.username.next(nombre);
+    this.role.next(rol); // 👈 Nuevo
   }
 
   logout() {
     this.loggedIn.next(false);
     this.username.next('');
+    this.role.next('');
   }
 }
 

@@ -7,6 +7,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { Router } from '@angular/router';
+import { Input } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-header',
@@ -26,14 +30,21 @@ import { MatInputModule } from '@angular/material/input';
 export class HeaderComponent {
   isLoggedIn = false;
   nombreUsuario = '';
+  currentFilter = 'Todas';
+  rolUsuario = '';
+  @Input() enLogin = false;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.authService.isLoggedIn.subscribe(status => this.isLoggedIn = status);
-    this.authService.currentUsername.subscribe(name => this.nombreUsuario = name);
+  this.authService.currentUsername.subscribe(name => this.nombreUsuario = name);
+  this.authService.currentRole.subscribe(r => {
+    this.rolUsuario = r || '';
+  });
+
   }
 
   onLogin() {
-    this.authService.login('UsuarioDemo');
+    this.router.navigate(['/login']);
   }
 
   onLogout() {

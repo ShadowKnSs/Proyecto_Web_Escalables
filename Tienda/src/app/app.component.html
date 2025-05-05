@@ -1,5 +1,5 @@
-<app-header></app-header>
-<app-filter-nav (filterChange)="onFilterChange($event)"></app-filter-nav>
+<app-header [enLogin]="enLogin" ></app-header>
+<app-filter-nav *ngIf="!enLogin" (filterChange)="onFilterChange($event)"></app-filter-nav>
 <main>
   <router-outlet></router-outlet> 
 </main>

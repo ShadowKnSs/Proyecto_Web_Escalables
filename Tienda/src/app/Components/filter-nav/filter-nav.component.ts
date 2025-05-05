@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { trigger, style, animate, transition } from '@angular/animations';
+
 @Component({
   selector: 'app-filter-nav',
   standalone: true,
@@ -15,7 +16,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
     ])
   ],
   template: `
-    <div class="filter-nav-wrapper" [@fadeIn]>
+    <div class="filter-nav-wrapper" [@fadeIn] *ngIf="show">
       <mat-tab-group (selectedIndexChange)="onTabChange($event)">
         <mat-tab *ngFor="let f of filtros" [label]="f"></mat-tab>
       </mat-tab-group>
@@ -35,6 +36,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
     ::ng-deep .mat-tab-label {
       font-weight: bold;
       color: #005FAB;
+      transition: color 0.3s ease;
     }
 
     ::ng-deep .mat-tab-label:hover {
@@ -53,6 +55,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 export class FilterNavComponent {
   @Output() filterChange = new EventEmitter<string>();
   filtros = ['Todos','Libros','Tecnología','Papelería','Ofertas','Nuevos'];
+  show = true;
 
   onTabChange(index: number) {
     this.filterChange.emit(this.filtros[index]);
